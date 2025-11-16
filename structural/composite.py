@@ -10,8 +10,8 @@ class MenuItem(Component):
     def __init__(self, name):
         self.name = name
 
-    def show(self, indent=0):
-        print("_" * indent + self.name)
+    def show(self):
+        print(self.name)
 
 class MenuGroup(Component):
     def __init__(self, name):
@@ -21,10 +21,10 @@ class MenuGroup(Component):
     def add(self, item):
         self.items.append(item)
 
-    def show(self, indent=0):
-        print(" " * indent + self.name)
+    def show(self):
+        print(self.name)
         for item in self.items:
-            item.show(indent + 2)
+            item.show()
 
 
 home = MenuItem("Home")
@@ -46,3 +46,4 @@ main_menu.add(contact)
 
 
 main_menu.show()
+

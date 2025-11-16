@@ -58,6 +58,6 @@ class Test(Singleton):
 
 
 a= Test([1,2,3])        
-print(a.data)
+print(a.data) #[1, 2, 3]
 b= Test([1,2,4])        
-print(a.data)
+print(a.data) #[1, 2, 3]
