@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 from datetime import datetime
 
+
 # ---------- Product ----------
 class Order:
     def __init__(self):
@@ -21,16 +22,20 @@ class OrderBuilder(ABC):
         self.order = Order()
 
     @abstractmethod
-    def add_customer(self): pass
+    def add_customer(self):
+        pass
 
     @abstractmethod
-    def add_items(self): pass
+    def add_items(self):
+        pass
 
     @abstractmethod
-    def add_payment(self): pass
+    def add_payment(self):
+        pass
 
     @abstractmethod
-    def add_summary(self): pass
+    def add_summary(self):
+        pass
 
 
 # ---------- Concrete Builder ----------

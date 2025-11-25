@@ -1,10 +1,12 @@
 # Component
 from abc import ABC, abstractmethod
 
+
 class Component(ABC):
     @abstractmethod
     def show(self, indent=0):
         pass
+
 
 class MenuItem(Component):
     def __init__(self, name):
@@ -12,6 +14,7 @@ class MenuItem(Component):
 
     def show(self):
         print(self.name)
+
 
 class MenuGroup(Component):
     def __init__(self, name):
@@ -46,4 +49,3 @@ main_menu.add(contact)
 
 
 main_menu.show()
-

@@ -3,14 +3,18 @@ class SingletonMeta(type):
         # print("hello")
         return super().__call__(*args, **kwargs)
 
+
 class Singleton1(metaclass=SingletonMeta):
     def __init__(self, name):
         self.name = name
 
+
 class child(Singleton1):
     pass
 
+
 s1 = Singleton1("ali")
+
 
 class mmm:
     def __call__(self):
@@ -21,15 +25,19 @@ class lll(mmm):
     def __init__(self, name):
         self.name = name
 
+
 class child(Singleton1):
     pass
 
+
 s1 = lll("ali")
+
 
 class Meta(type):
     def __new__(cls, name, bases, dct):
         # print("Meta.__new__ صدا زده شد")
         return super().__new__(cls, name, bases, dct)
+
 
 class MyClass(metaclass=Meta):
     def __init__(self):
@@ -39,25 +47,26 @@ class MyClass(metaclass=Meta):
 # print(type(Singleton1))
 
 
-
 class Meta(type):
-    _instance ={}
+    _instance = {}
 
     def __call__(cls, *args, **kwds):
-        if cls not in cls._instance :
+        if cls not in cls._instance:
             instance = super().__call__(*args, **kwds)
             cls._instance[cls] = instance
-        return cls._instance[cls] 
-    
-class Singleton(metaclass = Meta):
+        return cls._instance[cls]
+
+
+class Singleton(metaclass=Meta):
     pass
 
+
 class Test(Singleton):
-    def __init__(self,data):
-        self.data = data 
+    def __init__(self, data):
+        self.data = data
 
 
-a= Test([1,2,3])        
-print(a.data) #[1, 2, 3]
-b= Test([1,2,4])        
-print(a.data) #[1, 2, 3]
+a = Test([1, 2, 3])
+print(a.data)  # [1, 2, 3]
+b = Test([1, 2, 4])
+print(a.data)  # [1, 2, 3]

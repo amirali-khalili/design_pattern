@@ -1,18 +1,20 @@
 import copy
 
+
 class MyClass:
     def __init__(self, data):
         self.data = data
 
     def __copy__(self):
-        print('------shalow Copy-------')
-        return MyClass(copy.copy(self.data))  
-        
-    def __deepcopy__(self,memo):
-        print('------deep Copy-------')
-        return MyClass(copy.deepcopy(self.data,memo))
-    
-a1 = MyClass([1,2,3,[5,6]])
+        print("------shalow Copy-------")
+        return MyClass(copy.copy(self.data))
+
+    def __deepcopy__(self, memo):
+        print("------deep Copy-------")
+        return MyClass(copy.deepcopy(self.data, memo))
+
+
+a1 = MyClass([1, 2, 3, [5, 6]])
 print(a1.data)
 a2 = copy.copy(a1)
 a2.data.append(20)
